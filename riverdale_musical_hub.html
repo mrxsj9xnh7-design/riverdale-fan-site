@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riverdale Musical Hub</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0b1020;
+    color:white;
+}
+
+header{
+    background:linear-gradient(90deg,#6d28d9,#db2777);
+    text-align:center;
+    padding:40px 20px;
+}
+
+header h1{
+    margin:0;
+    font-size:3rem;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.section-title{
+    color:#f0abfc;
+    margin-top:40px;
+    font-size:2rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:18px;
+}
+
+textarea{
+    width:100%;
+    min-height:100px;
+    background:#334155;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:10px;
+    margin-top:10px;
+}
+
+button{
+    background:#9333ea;
+    color:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#c084fc;
+}
+
+.music-list{
+    background:#111827;
+    border-radius:16px;
+    padding:20px;
+}
+
+.song{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#1f2937;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:12px;
+}
+
+.song a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Riverdale Musical Hub</h1>
+<p>Characters, notes, and every Riverdale musical episode soundtrack.</p>
+</header>
+
+<div class="container">
+
+<h2 class="section-title">Main Characters</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/en/7/71/Archie_Andrews.png">
+<div class="card-content">
+<h2>Archie Andrews</h2>
+<p>Football player and musician.</p>
+<textarea id="archie" placeholder="Write notes about Archie..."></textarea>
+<button onclick="saveText('archie')">Save Notes</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/en/5/53/Betty_Cooper.png">
+<div class="card-content">
+<h2>Betty Cooper</h2>
+<p>Smart investigator with secrets.</p>
+<textarea id="betty" placeholder="Write notes about Betty..."></textarea>
+<button onclick="saveText('betty')">Save Notes</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/en/e/e8/Jughead_Jones.png">
+<div class="card-content">
+<h2>Jughead Jones</h2>
+<p>Mystery writer and narrator.</p>
+<textarea id="jughead" placeholder="Write notes about Jughead..."></textarea>
+<button onclick="saveText('jughead')">Save Notes</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://upload.wikimedia.org/wikipedia/en/7/70/Veronica_Lodge.png">
+<div class="card-content">
+<h2>Veronica Lodge</h2>
+<p>Stylish and confident.</p>
+<textarea id="veronica" placeholder="Write notes about Veronica..."></textarea>
+<button onclick="saveText('veronica')">Save Notes</button>
+</div>
+</div>
+
+</div>
+
+<h2 class="section-title">Riverdale Musicals</h2>
+
+<div class="music-list">
+
+<div class="song">
+<span>Carrie: The Musical</span>
+<a href="https://www.youtube.com/results?search_query=riverdale+carrie+musical+songs" target="_blank">
+<button>Play Music</button>
+</a>
+</div>
+
+<div class="song">
+<span>Heathers: The Musical</span>
+<a href="https://www.youtube.com/results?search_query=riverdale+heathers+musical+songs" target="_blank">
+<button>Play Music</button>
+</a>
+</div>
+
+<div class="song">
+<span>Hedwig and the Angry Inch</span>
+<a href="https://www.youtube.com/results?search_query=riverdale+hedwig+and+the+angry+inch+songs" target="_blank">
+<button>Play Music</button>
+</a>
+</div>
+
+<div class="song">
+<span>Next to Normal</span>
+<a href="https://www.youtube.com/results?search_query=riverdale+next+to+normal+songs" target="_blank">
+<button>Play Music</button>
+</a>
+</div>
+
+<div class="song">
+<span>American Psycho: The Musical</span>
+<a href="https://www.youtube.com/results?search_query=riverdale+american+psycho+musical+songs" target="_blank">
+<button>Play Music</button>
+</a>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+Riverdale Fan Website ✨
+</footer>
+
+<script>
+function saveText(character){
+    const text = document.getElementById(character).value;
+    localStorage.setItem(character, text);
+    alert("Notes saved!");
+}
+
+function loadText(character){
+    const saved = localStorage.getItem(character);
+    if(saved){
+        document.getElementById(character).value = saved;
+    }
+}
+
+['archie','betty','jughead','veronica'].forEach(loadText);
+</script>
+
+</body>
+</html>
